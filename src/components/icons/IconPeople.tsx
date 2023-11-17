@@ -1,5 +1,4 @@
-
-const IconPeople  = () => {
+const IconPeople = () => {
   return (
     <svg
       width={24}

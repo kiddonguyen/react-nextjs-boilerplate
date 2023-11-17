@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@storybook/cli": "^7.5.3",
@@ -41,6 +42,7 @@
     "@storybook/react": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
     "eslint-plugin-storybook": "^0.6.15",
+    "prettier": "^3.1.0",
     "storybook": "^7.5.3"
   }
 }

@@ -1,4 +1,3 @@
-
 const IconBuilding = () => {
   return (
     <svg

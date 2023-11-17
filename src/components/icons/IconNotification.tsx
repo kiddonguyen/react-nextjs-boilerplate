@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const IconNotification = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -19,6 +19,6 @@ const IconNotification = (props: React.SVGProps<SVGSVGElement>) => {
       <circle cx="18.5" cy="5.5" r="3.5" fill="#EB5757" />
     </svg>
   );
-}
+};
 
-export default IconNotification
+export default IconNotification;
