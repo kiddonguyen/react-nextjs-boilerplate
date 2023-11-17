@@ -1,7 +1,7 @@
-import React from "react";
+import { LayoutMain } from "@/components/layout";
 
 const Home = () => {
-  return <div></div>;
+  return <LayoutMain>DashboardPage</LayoutMain>;
 };
 
 export default Home;
