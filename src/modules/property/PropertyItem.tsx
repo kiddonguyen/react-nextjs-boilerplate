@@ -69,3 +69,28 @@ function PropertyLocation({}) {
     </div>
   );
 }
+
+function PropertyPrice({}) {
+  return (
+    <span className="bg-secondary inline-block text-xs text-primary font-semibold py-2 px-[10px] rounded-[5px] mb-3">
+      $7400
+    </span>
+  );
+}
+
+function PropertyPlace({}) {
+  return (
+    <h3 className="text-base font-semibold mb-2">
+      Metro Jayakarta Hotel & Spa
+    </h3>
+  );
+}
+
+function PropertyLocation({}) {
+  return (
+    <div className="flex items-center gap-1 text-gray80 mb-3">
+      <IconLocation2></IconLocation2>
+      <span>North Carolina, USA</span>
+    </div>
+  );
+}
