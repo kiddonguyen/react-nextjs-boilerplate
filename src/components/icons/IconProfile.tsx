@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const IconProfile = () => {
   return (
@@ -23,6 +23,6 @@ const IconProfile = () => {
       />
     </svg>
   );
-}
+};
 
-export default IconProfile
+export default IconProfile;

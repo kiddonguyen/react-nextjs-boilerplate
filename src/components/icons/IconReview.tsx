@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const IconReview = () => {
   return (
@@ -17,6 +17,6 @@ const IconReview = () => {
       />
     </svg>
   );
-}
+};
 
-export default IconReview
+export default IconReview;

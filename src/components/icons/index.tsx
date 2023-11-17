@@ -6,3 +6,6 @@ export { default as IconPeople } from "./IconPeople";
 export { default as IconProfile } from "./IconProfile";
 export { default as IconReview } from "./IconReview";
 export { default as IconSearch } from "./IconSearch";
+export { default as IconLocation2 } from "./IconLocation2";
+export { default as IconBed } from "./IconBed";
+export { default as IconCross } from "./IconCross";
