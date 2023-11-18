@@ -49,6 +49,7 @@ function User({}) {
           alt="avatar"
           width={40}
           height={40}
+          priority
           className="rounded-full object-cover w-10 h-10"
         ></Image>
         <div className="flex flex-col">
