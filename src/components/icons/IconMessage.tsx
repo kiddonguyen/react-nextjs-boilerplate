@@ -1,4 +1,3 @@
-
 const IconMessage = () => {
   return (
     <svg

@@ -6,11 +6,17 @@ import { PropertyIconWithLabel } from "./PropertyIconWithLabel";
  * @param {React.ReactNode} children - The children elements to be rendered inside the component.
  * @return {JSX.Element} The rendered PropertyLocation component.
  */
-export function PropertyLocation({children} : {children: React.ReactNode}): JSX.Element {
+export function PropertyLocation({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <PropertyIconWithLabel
       icon={<IconLocation2 />}
       className="text-gray80 mb-4"
-    >{ children }</PropertyIconWithLabel>
+    >
+      {children}
+    </PropertyIconWithLabel>
   );
 }

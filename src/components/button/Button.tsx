@@ -41,7 +41,7 @@ const Button = ({
         variantsClasses[variant],
         sizesClasses[size],
         className,
-        isLoading ? "opacity-50 pointer-events-none" : ""
+        isLoading ? "opacity-50 pointer-events-none" : "",
       )}
       {...props}
     >

@@ -6,7 +6,7 @@ import Link from "next/link";
  * @param {} - No parameters needed.
  * @return {JSX.Element} - The back link component.
  */
-export function BackLink({}) {
+export function BackLink({}: {}): JSX.Element {
   return (
     <h2 className="flex items-center gap-5 mb-6 text-xl font-medium">
       <Link href="/properties">

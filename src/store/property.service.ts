@@ -57,7 +57,7 @@ export async function addNewProperty() {
   }
 }
 export async function getProperty(
-  id: number
+  id: number,
 ): Promise<PropertyItemData | null | undefined> {
   try {
     const res = await axios.get(`${API_URL}/property/${id}`);

@@ -7,9 +7,6 @@ import { PropertyItemProps } from "@/types/general.types";
  * @returns {JSX.Element} - The rendered component.
  */
 export function PropertyUtil(props: PropertyItemProps): JSX.Element {
-  const {
-    children
-  } = props;
+  const { children } = props;
   return <span className="text-xs font-medium">{children}</span>;
 }
-  

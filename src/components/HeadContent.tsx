@@ -1,6 +1,6 @@
 import { METADATA } from "@/config";
-import Head from 'next/head';
-import React from 'react'
+import Head from "next/head";
+import React from "react";
 interface HeadContentProps {
   title?: string;
   description?: string;
@@ -14,4 +14,4 @@ const HeadContent = ({ title, description }: HeadContentProps) => {
   );
 };
 
-export default HeadContent
+export default HeadContent;

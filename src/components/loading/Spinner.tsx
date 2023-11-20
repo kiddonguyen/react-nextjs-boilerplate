@@ -17,7 +17,7 @@ const Spinner = ({
       className={twMerge(
         sizesClasses[size],
         className,
-        "mx-auto rounded-full border-t-transparent border-b-transparent animate-spin"
+        "mx-auto rounded-full border-t-transparent border-b-transparent animate-spin",
       )}
     ></div>
   );

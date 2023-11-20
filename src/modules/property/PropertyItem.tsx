@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PropertyLocation, PropertyMeta, PropertyPlace, PropertyPrice } from "./item";
+import {
+  PropertyLocation,
+  PropertyMeta,
+  PropertyPlace,
+  PropertyPrice,
+} from "./item";
 /**
  * Renders a single property item.
  *
@@ -14,12 +19,13 @@ const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
     return <></>;
   }
   return (
-    <Link href={
-      {
+    <Link
+      href={{
         pathname: "/property/[id]",
         query: { id: data.id },
-      }
-    } className="flex gap-2">
+      }}
+      className="flex gap-2"
+    >
       {data?.image && data?.image.length > 0 && (
         <Image
           src={data.image[0]}

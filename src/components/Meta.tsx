@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import React from 'react'
+import Head from "next/head";
+import React from "react";
 import { METADATA } from "../config";
 
 const Meta = () => {
@@ -9,6 +9,6 @@ const Meta = () => {
       <meta name="description" content={METADATA.description} />
     </Head>
   );
-}
+};
 
-export default Meta
+export default Meta;

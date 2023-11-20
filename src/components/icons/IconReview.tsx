@@ -1,4 +1,3 @@
-
 const IconReview = () => {
   return (
     <svg

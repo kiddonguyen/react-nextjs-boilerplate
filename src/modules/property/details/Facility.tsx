@@ -20,9 +20,7 @@ function renderFacilityIcon(item: [string, any]): React.ReactNode {
   // const Icon = dynamic(() => import(`../../components/icons/Icon${newName}`));
   return (
     <>
-      <span>
-        {/* <Icon></Icon> */}
-      </span>
+      <span>{/* <Icon></Icon> */}</span>
       <span className="text-sm font-medium">
         {count} {newName}
       </span>

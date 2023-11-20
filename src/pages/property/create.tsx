@@ -1,10 +1,7 @@
 import HeadContent from "@/components/HeadContent";
 import { LayoutMain } from "@/components/layout";
 import { addNewProperty } from "@/store/property.service";
-import {
-  useMutation,
-  useQueryClient
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const PropertyCreatePage = () => {
   const queryClient = useQueryClient();

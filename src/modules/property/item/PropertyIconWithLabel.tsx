@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { PropertyUtil } from "./PropertyUtil";
 /**
  * Renders an icon with a label.
- * 
+ *
  * @param props - The component props.
  * @param props.icon - The icon element.
  * @param props.label - The label text.
@@ -21,4 +21,3 @@ export function PropertyIconWithLabel(props: {
     </div>
   );
 }
-  
