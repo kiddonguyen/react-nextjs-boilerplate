@@ -1,4 +1,10 @@
 
+/**
+ * Render a property information component.
+ *
+ * @param {PropertyItemData} data - The data for the property item.
+ * @return {JSX.Element} - The rendered property information component.
+ */
 export function PropertyInfo({
   data
 }: {

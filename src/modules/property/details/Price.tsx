@@ -1,4 +1,10 @@
 
+/**
+ * Render the price component.
+ *
+ * @param {object} data - The data object containing the property item data.
+ * @returns {JSX.Element} - The rendered price component.
+ */
 export function Price({
   data
 }: {

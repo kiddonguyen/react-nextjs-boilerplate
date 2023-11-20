@@ -4,6 +4,14 @@ import { Rating } from "./Rating";
 import { Description } from "./Description";
 import { Facility } from "./Facility";
 import { Gallery } from "./Gallery";
+/**
+ * Renders the left section of the property item.
+ *
+ * @param {Object} props - The properties for the LeftSection component.
+ * @param {PropertyItemData} props.data - The data for the property item.
+ * @param {Array<[string, any]>} props.facilities - The facilities for the property item.
+ * @return {JSX.Element} The JSX element representing the left section of the property item.
+ */
 export function LeftSection({
   data,
   facilities,

@@ -1,6 +1,12 @@
 import capitalizeStr from "@/utils/toCapitalize";
 import dynamic from "next/dynamic";
 
+/**
+ * Renders a facility icon based on the given item.
+ *
+ * @param {Array<string, any>} item - The item containing the facility name and count.
+ * @return {React.ReactNode} The rendered facility icon.
+ */
 function renderFacilityIcon(item: [string, any]): React.ReactNode {
   // switch (name) {
   //   case "Beds": {
