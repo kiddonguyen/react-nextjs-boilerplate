@@ -1,10 +1,6 @@
-import { PropertyMeta } from "./PropertyMeta";
-import { PropertyLocation } from "./PropertyLocation";
-import { PropertyPlace } from "./PropertyPlace";
-import { PropertyPrice } from "./PropertyPrice";
 import Image from "next/image";
-import React from "react";
 import Link from "next/link";
+import { PropertyLocation, PropertyMeta, PropertyPlace, PropertyPrice } from "./item";
 /**
  * Renders a single property item.
  *
@@ -17,7 +13,6 @@ const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
   if (!data) {
     return <></>;
   }
-  console.log(data);
   return (
     <Link href={
       {

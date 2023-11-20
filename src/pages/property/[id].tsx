@@ -5,7 +5,6 @@ import PropertyDetails from "@/modules/property/PropertyDetails";
 const PropertyDetailsPage = () => {
   return (
     <>
-      
       <LayoutMain>
         <PropertyDetails></PropertyDetails>
       </LayoutMain>
