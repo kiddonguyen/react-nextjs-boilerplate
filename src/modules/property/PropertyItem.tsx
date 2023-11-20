@@ -4,29 +4,44 @@ import { PropertyPlace } from "./PropertyPlace";
 import { PropertyPrice } from "./PropertyPrice";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 /**
  * Renders a single property item.
  *
  * @return {JSX.Element} The rendered property item.
  */
-const PropertyItem = (): JSX.Element => {
+interface PropertyItemProps {
+  data: PropertyItemData;
+}
+const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
+  if (!data) {
+    return <></>;
+  }
+  console.log(data);
   return (
-    <div className="flex gap-2">
-      <Image
-        src="https://source.unsplash.com/random"
-        alt="Property Thumbnail"
-        width={400}
-        height={250}
-        priority
-        className="w-100 object-cover w-[200px] h-[125px] rounded-xl"
-      ></Image>
+    <Link href={
+      {
+        pathname: "/property/[id]",
+        query: { id: data.id },
+      }
+    } className="flex gap-2">
+      {data?.image && data?.image.length > 0 && (
+        <Image
+          src={data.image[0]}
+          alt="Property Thumbnail"
+          width={400}
+          height={250}
+          priority
+          className="w-100 object-cover w-[200px] h-[125px] rounded-xl"
+        ></Image>
+      )}
       <div className="flex-1">
-        <PropertyPrice>$7400</PropertyPrice>
-        <PropertyPlace>Metro Jayakarta Hotel & Spa</PropertyPlace>
-        <PropertyLocation>North Carolina, USA</PropertyLocation>
-        <PropertyMeta />
+        <PropertyPrice>${data.price}</PropertyPrice>
+        <PropertyPlace>{data.title}</PropertyPlace>
+        <PropertyLocation>{data.address}</PropertyLocation>
+        {data.facility && <PropertyMeta facility={data.facility} />}
       </div>
-    </div>
+    </Link>
   );
 };
 

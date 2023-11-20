@@ -16,7 +16,7 @@ export const sidebarLinks: TSidebarLink[] = [
   {
     title: "Property",
     icon: <IconBuilding />,
-    path: "/property",
+    path: "/properties",
   },
   {
     title: "Agent",
@@ -39,3 +39,6 @@ export const sidebarLinks: TSidebarLink[] = [
     path: "/profile",
   },
 ];
+
+export const STALE_TIME = 1000 * 60 * 5;
+export const CACHE_TIME = STALE_TIME * 2; // Best practices

@@ -12,7 +12,7 @@ interface ILayoutMainProps {
  * @param {ILayoutMainProps} children - The components to be rendered inside the layout.
  * @return {JSX.Element} - The main layout component.
  */
-const LayoutMain = ({ children }: ILayoutMainProps) => {
+const LayoutMain = ({ children }: ILayoutMainProps): JSX.Element => {
   return (
     <Fragment>
       <Topbar></Topbar>

@@ -1,7 +1,12 @@
 import { LayoutMain } from "@/components/layout";
+import Head from "next/head";
 
 const Home = () => {
-  return <LayoutMain>DashboardPage</LayoutMain>;
+  return (
+    <LayoutMain>
+      Home
+    </LayoutMain>
+  );
 };
 
 export default Home;
