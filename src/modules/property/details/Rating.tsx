@@ -1,6 +1,13 @@
 import { IconRating } from "@/components/icons";
 
-export function Rating({ data }: { data: PropertyItemData }) {
+/**
+ * Render a rating component based on the given data.
+ *
+ * @param {Object} data - The data object containing the rating information.
+ * @param {number} data.rating - The rating value.
+ * @return {JSX.Element} The JSX element representing the rating component.
+ */
+export function Rating({ data }: { data: PropertyItemData }): JSX.Element {
   return (
     <div>
       {Array(Math.floor(data.rating || 0))
