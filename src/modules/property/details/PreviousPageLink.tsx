@@ -4,12 +4,11 @@ import { Fragment } from "react";
 import { Heading } from "../../../components/common/Heading";
 
 /**
- * A React component that renders a link to the previous page.
+ * Renders a link to the previous page.
  *
- * @param {} - No parameters needed for this component.
+ * @param {} - No parameters.
  * @return {JSX.Element} - The JSX element representing the previous page link.
  */
-
 export function PreviousPageLink({}: {}): JSX.Element {
   return (
     <Fragment>

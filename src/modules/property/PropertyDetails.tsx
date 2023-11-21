@@ -7,7 +7,11 @@ import { useRouter } from "next/router";
 import { CACHE_TIME, STALE_TIME } from "@/constants/general.const";
 import { Agent, BackLink, LeftSection } from "./details";
 
-const PropertyDetails = (posts: any) => {
+/**
+ * Renders the Property Details component.
+ * @returns JSX.Element or null if there is no data or an error occurred.
+ */
+const PropertyDetails = (): JSX.Element | null => {
   const router = useRouter();
   const id = parseInt(router.query.id as string);
   const { data, isLoading, error } = useQuery({
@@ -16,22 +20,27 @@ const PropertyDetails = (posts: any) => {
     staleTime: STALE_TIME,
     cacheTime: CACHE_TIME,
     enabled: !!id,
-    // initialData: posts?.posts || {},
   });
-  if (!data || error) return;
-  if (isLoading) return <Spinner></Spinner>;
-  const facilities = Object.entries(data?.facility || {});
-  const agent = data?.agent;
+
+  if (!data || error) {
+    return null;
+  }
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  const facilities = data?.facility ? Object.entries(data.facility) : [];
+  // const agent = data?.agent || {};
+
   return (
     <>
-      <HeadContent title={data.title}></HeadContent>
+      <HeadContent title={data.title} />
       <div className="p-5 bg-grayfc rounded-2xl">
         <BackLink />
         <div className="grid grid-cols-[2fr_1fr] gap-6">
           <LeftSection data={data} facilities={facilities} />
-          <Agent
-            agent={agent}
-          />
+          <Agent data={data} />
         </div>
       </div>
     </>

@@ -27,7 +27,7 @@ const Button = ({
   size = "md",
   variant = "primary",
   isLoading = false,
-  ...props
+  ...rest
 }: ButtonProps) => {
   const child = !!isLoading ? (
     <Spinner size="sm" className="border-white" />
@@ -41,9 +41,9 @@ const Button = ({
         variantsClasses[variant],
         sizesClasses[size],
         className,
-        isLoading ? "opacity-50 pointer-events-none" : "",
+        isLoading ? "opacity-50 pointer-events-none" : ""
       )}
-      {...props}
+      {...rest}
     >
       {child}
     </button>

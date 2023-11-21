@@ -9,7 +9,7 @@ import { renderFacilityIcon } from "@/utils/common";
 export function Facility({
   facilities,
 }: {
-  facilities: [string, any][];
+  facilities: [string, any][] | undefined;
 }): JSX.Element {
   /**
    * Renders the facilities.
@@ -17,7 +17,7 @@ export function Facility({
    * @return {React.ReactNode} The rendered facilities.
    */
   const renderFacilities = (): React.ReactNode => {
-    return facilities.map((item: [string, any], index: number) => (
+    return facilities?.map((item: [string, any], index: number) => (
       <div className="flex items-center gap-1" key={index}>
         {renderFacilityIcon(item)}
       </div>
@@ -29,7 +29,7 @@ export function Facility({
         Facility
       </Heading>
       <div className="grid grid-cols-4 gap-5 mb-6">
-        {facilities.length > 0 && renderFacilities()}
+        {facilities && facilities?.length > 0 && renderFacilities()}
       </div>
     </>
   );

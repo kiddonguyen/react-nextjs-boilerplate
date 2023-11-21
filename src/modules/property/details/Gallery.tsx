@@ -1,15 +1,17 @@
 import { GridComponent } from "./gallery/GridComponent";
 
+
 /**
- * Renders a gallery component with the provided image data.
+ * Renders a gallery component.
  *
- * @param {PropertyItemData} images - The image data for the gallery.
- * @returns {JSX.Element} The rendered gallery component.
+ * @param {Object} data - The data for the gallery component.
+ * @param {Array} data.images - The array of images to be displayed in the gallery.
+ * @return {JSX.Element} The rendered gallery component.
  */
-export function Gallery({ images }: PropertyItemData): JSX.Element {
+export function Gallery({ data }: { data: PropertyItemData }): JSX.Element {
   return (
     <div aria-label="gallery" className="mb-4">
-      <GridComponent images={images}></GridComponent>
+      <GridComponent images={data.images}></GridComponent>
     </div>
   );
 }

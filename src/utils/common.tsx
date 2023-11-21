@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import capitalizeStr from "./toCapitalize";
 
 /**
@@ -16,10 +17,10 @@ export function renderFacilityIcon(item: [string, any]): React.ReactNode {
   // }
   const [name, count] = item;
   const newName = capitalizeStr(name, "-").replace(/ /g, "");
-  // const Icon = dynamic(() => import(`../../components/icons/Icon${newName}`));
+  const Icon = dynamic(() => import(`@/components/icons/Icon${newName}`));
   return (
     <>
-      <span>{/* <Icon></Icon> */}</span>
+      <span><Icon></Icon></span>
       <span className="text-sm font-medium">
         {count} {newName}
       </span>

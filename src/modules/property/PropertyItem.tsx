@@ -6,15 +6,14 @@ import {
   PropertyPlace,
   PropertyPrice,
 } from "./item";
+import { PropertyItemData } from "@/types/property.types";
 /**
  * Renders a single property item.
  *
  * @return {JSX.Element} The rendered property item.
  */
-interface PropertyItemProps {
-  data: PropertyItemData;
-}
-const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
+
+const PropertyItem = ({ data }: { data: PropertyItemData }): JSX.Element => {
   if (!data) {
     return <></>;
   }
@@ -26,9 +25,9 @@ const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
       }}
       className="flex gap-2"
     >
-      {data?.images && data?.images.length > 0 && (
+      {data?.image && data?.image.length > 0 && (
         <Image
-          src={data.images[0]}
+          src={data.image[0]}
           alt="Property Thumbnail"
           width={400}
           height={250}

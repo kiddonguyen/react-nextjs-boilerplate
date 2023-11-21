@@ -1,3 +1,6 @@
+import { Heading } from "@/components/common";
+import capitalizeStr from "@/utils/toCapitalize";
+
 /**
  * Render a property information component.
  *
@@ -11,11 +14,14 @@ export function PropertyInfo({
 }): JSX.Element {
   return (
     <div className="flex flex-col gap-2">
-      <span className="block text-lg font-medium">{data.type}</span>
-      <h1 className="text-xl font-medium">{data.title}</h1>
+      <span className="block text-lg font-medium">
+        {capitalizeStr(data.type)}
+      </span>
+      <Heading level="h1" className="text-xl font-medium">
+        {data.title}
+      </Heading>
       <div className="flex items-center gap-1 text-sm text-gray80">
-        <span></span>
-        <span>{data.address}</span>
+        {data.address}
       </div>
     </div>
   );

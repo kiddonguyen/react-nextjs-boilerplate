@@ -1,10 +1,11 @@
+import { PropertyMeta } from "./PropertyMeta";
 import { Description } from "./Description";
 import { Facility } from "./Facility";
 import { Gallery } from "./Gallery";
-import { Price } from "./Price";
-import { PropertyInfo } from "./PropertyInfo";
-import { Rating } from "./Rating";
-
+interface LeftSectionProps {
+  data?: PropertyItemData; // Make data optional
+  facilities?: [string, any][] | undefined;
+} 
 /**
  * Renders the left section of the property item.
  *
@@ -16,21 +17,15 @@ import { Rating } from "./Rating";
 export function LeftSection({
   data,
   facilities,
-}: {
-  data: PropertyItemData;
-  facilities: [string, any][];
-}): JSX.Element {
+}: LeftSectionProps): JSX.Element {
+  if (!data) {
+    return <div>No data available</div>;
+  }
   return (
     <div aria-label="left">
-      <Gallery images={data?.images} />
+      <Gallery data={data} />
       <div>
-        <div className="grid grid-cols-[3fr_1fr] gap-6 mb-5">
-          <PropertyInfo data={data} />
-          <div className="flex flex-col gap-2">
-            <Rating data={data} />
-            <Price data={data} />
-          </div>
-        </div>
+        <PropertyMeta data={data} />
         <Facility facilities={facilities} />
         <Description data={data} />
       </div>
