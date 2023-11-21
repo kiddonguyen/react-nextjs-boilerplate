@@ -12,3 +12,7 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 export interface AgentProps {
   agent?: PropertyAgent | undefined;
 }
+export type AdditionalImagesProps = {
+  images: string[] | undefined;
+};
+export type GridComponentProps = AdditionalImagesProps;

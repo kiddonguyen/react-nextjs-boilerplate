@@ -26,9 +26,9 @@ const PropertyItem = ({ data }: PropertyItemProps): JSX.Element => {
       }}
       className="flex gap-2"
     >
-      {data?.image && data?.image.length > 0 && (
+      {data?.images && data?.images.length > 0 && (
         <Image
-          src={data.image[0]}
+          src={data.images[0]}
           alt="Property Thumbnail"
           width={400}
           height={250}

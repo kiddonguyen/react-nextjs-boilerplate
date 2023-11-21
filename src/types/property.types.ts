@@ -24,7 +24,7 @@ interface PropertyItemData {
   status?: string;
   type?: string;
   price?: number;
-  image?: string[];
+  images: string[];
   country?: string;
   description?: string;
   rating?: number;

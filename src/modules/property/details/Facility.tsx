@@ -1,5 +1,5 @@
+import { Heading } from "@/components/common";
 import { renderFacilityIcon } from "@/utils/common";
-import { Heading } from "../../../components/common/Heading";
 /**
  * Renders a facility component.
  *

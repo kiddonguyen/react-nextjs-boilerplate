@@ -12,7 +12,6 @@ export function Agent({ agent }: AgentProps): JSX.Element {
   if (!agent) {
     return <div>No agent information available.</div>;
   }
-
   return (
     <div aria-label="right" className="flex flex-col gap-5">
       <AgentSection agent={agent} />
