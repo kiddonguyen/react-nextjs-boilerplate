@@ -10,10 +10,10 @@ interface PropertyInfo {
 }
 
 interface PropertyAgent {
-  name?: string;
-  phone?: string;
-  address?: string;
-  properties?: number;
+  name: string;
+  phone: string;
+  address: string;
+  properties: number;
 }
 
 interface PropertyItemData {

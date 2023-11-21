@@ -20,3 +20,4 @@ export { default as IconSmookingArea } from "./IconSmookingArea";
 export { default as IconStar } from "./IconStar";
 export { default as IconTune } from "./IconTune";
 export { default as IconWifi } from "./IconWifi";
+export { default as IconArrowLeft } from "./IconArrowLeft";

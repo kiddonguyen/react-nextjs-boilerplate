@@ -1,5 +1,5 @@
 import { Agent } from "./Agent";
-import { BackLink } from "./BackLink";
+import { PreviousPageLink } from "./PreviousPageLink";
 import { LeftSection } from "./LeftSection";
 
-export { Agent, BackLink, LeftSection };
+export { Agent, PreviousPageLink as BackLink, LeftSection };

@@ -30,9 +30,7 @@ const PropertyDetails = (posts: any) => {
         <div className="grid grid-cols-[2fr_1fr] gap-6">
           <LeftSection data={data} facilities={facilities} />
           <Agent
-            name={agent?.name}
-            address={agent?.address}
-            properties={agent?.properties}
+            agent={agent}
           />
         </div>
       </div>
