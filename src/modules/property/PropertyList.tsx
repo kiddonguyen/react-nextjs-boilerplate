@@ -15,22 +15,21 @@ const PropertyList = (): JSX.Element => {
     queryFn: getProperties,
     staleTime: 1000 * 60,
   });
-  const properties = data?.properties || [];
-  if (error || properties?.length === 0) return <div>Something went wrong</div>;
-  if (isLoading)
-    return (
-      <>
-        <div
-          aria-label="list"
-          className="grid grid-cols-2 gap-x-16 gap-y-6 mb-9"
-        >
-          {Array(4).fill(0) &&
-            properties?.map((property: PropertyItemData) => (
-              <PropertyItemLoading key={property.id} />
-            ))}
-        </div>
-      </>
-    );
+  const properties = data;
+  // if (isLoading)
+  //   return (
+  //     <>
+  //       <div
+  //         aria-label="list"
+  //         className="grid grid-cols-2 gap-x-16 gap-y-6 mb-9"
+  //       >
+  //         {Array(4).fill(0) &&
+  //           properties?.map((property: PropertyItemData) => (
+  //             <PropertyItemLoading key={property.id} />
+  //           ))}
+  //       </div>
+  //     </>
+  //   );
   return (
     <div className="bg-grayfc flex-shrink-0 rounded-2xl p-5">
       <Filter />
