@@ -7,12 +7,13 @@ import {
   PropertyPrice,
 } from "./item";
 import { PropertyItemData } from "@/types/property.types";
+import { Skeleton } from "@/components/loading";
+import { IconBed, IconCross, IconLocation2 } from "@/components/icons";
 /**
  * Renders a single property item.
  *
  * @return {JSX.Element} The rendered property item.
  */
-
 const PropertyItem = ({ data }: { data: PropertyItemData }): JSX.Element => {
   if (!data) {
     return <></>;
@@ -42,6 +43,31 @@ const PropertyItem = ({ data }: { data: PropertyItemData }): JSX.Element => {
         {data.facility && <PropertyMeta facility={data.facility} />}
       </div>
     </Link>
+  );
+};
+export const PropertyItemLoading = () => {
+  return (
+    <div className="flex gap-2">
+      <Skeleton className="w-[200px] h-[150px] rounded-xl"></Skeleton>
+      <div className="flex-1">
+        <Skeleton className="w-[50px] h-[30px] mb-2"></Skeleton>
+        <Skeleton className="w-full h-3 mb-3"></Skeleton>
+        <div className="flex items-center gap-1 mb-2 text-gray80">
+          <IconLocation2></IconLocation2>
+          <Skeleton className="w-20 h-3"></Skeleton>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <IconBed></IconBed>
+            <Skeleton className="w-5 h-3"></Skeleton>
+          </div>
+          <div className="flex items-center gap-1">
+            <IconCross></IconCross>
+            <Skeleton className="w-5 h-3"></Skeleton>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
