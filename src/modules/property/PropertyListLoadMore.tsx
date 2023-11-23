@@ -37,12 +37,11 @@ const PropertyListLoadMore = (): JSX.Element => {
         offset: pageParam,
       }),
     getNextPageParam: (lastPage) => {
-      const properties = lastPage?.properties;
-      
+      const properties = lastPage?.properties || [];
       if (properties.length < ITEMS_PER_PAGE) {
         return undefined;
       }
-
+      return ((lastPage && lastPage?.offset) || 0) + properties.length;
     },
     staleTime: STALE_TIME,
     cacheTime: CACHE_TIME,
@@ -70,7 +69,7 @@ const PropertyListLoadMore = (): JSX.Element => {
       </>
     );
   const handleLoadMore = () => {
-    fetchNextPage();
+    hasNextPage && fetchNextPage();
   };
   if (error) {
     return <></>;
@@ -79,12 +78,16 @@ const PropertyListLoadMore = (): JSX.Element => {
     <div className="bg-grayfc flex-shrink-0 rounded-2xl p-5">
       <Filter />
       <ListProperty data={data} />
-      <Button
-        className="mx-auto rounded-lg text-sm font-medium"
-        onClick={handleLoadMore}
-      >
-        Load more
-      </Button>
+      {hasNextPage && (
+        <Button
+          isLoading={isFetchingNextPage || isFetching}
+          className="mx-auto rounded-lg text-sm font-medium w-24"
+          onClick={handleLoadMore}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          Load more
+        </Button>
+      )}
     </div>
   );
 };

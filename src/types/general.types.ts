@@ -36,8 +36,8 @@ export type TDropdownData = {
   value: string;
   label: string;
 };
-export interface DropdownProps {
+export interface DropdownProps<TData> {
   selected?: string;
-  data?: TDropdownData[];
-  onClick?: (value: any) => void;
+  data?: TData[];
+  renderItems?: (item: TData) => React.ReactNode;
 }

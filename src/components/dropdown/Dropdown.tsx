@@ -2,11 +2,9 @@ import { DropdownProps } from "@/types/general.types";
 import { Menu } from "@headlessui/react";
 import { IconCavetDown } from "../icons";
 
-export function Dropdown({
-  selected = "Any Type",
-  data = [],
-  onClick = () => {},
-}: DropdownProps): JSX.Element {
+export function Dropdown<TData,>(props: DropdownProps<TData>): JSX.Element {
+  // eslint-disable-next-line align-assignments/align-assignments
+  const { selected, renderItems, data  = [] } = props;
   return (
     <Menu as="div" className="relative basis-[160px]">
       {({ open }) => (
@@ -25,7 +23,8 @@ export function Dropdown({
               as="div"
               className="absolute top-full left-0 right-0 rounded-lg bg-grayfc z-10 shadow-dropdown outline-none"
             >
-              {data.length > 0 &&
+              {data.length > 0 && data.map(item => renderItems?.(item))}
+              {/* {data.length > 0 &&
                 data.map((item) => (
                   <Menu.Item
                     as={"div"}
@@ -35,7 +34,7 @@ export function Dropdown({
                   >
                     {item.label}
                   </Menu.Item>
-                ))}
+                ))} */}
             </Menu.Items>
           )}
         </>
