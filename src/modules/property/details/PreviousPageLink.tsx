@@ -16,7 +16,7 @@ export function PreviousPageLink({}: {}): JSX.Element {
         level="h2"
         className="flex items-center gap-5 mb-6 text-xl font-medium"
       >
-        <Link href="/properties" title="Back to Properties page" target="_self">
+        <Link href="/properties" title="Back to Properties page">
           <IconArrowLeft></IconArrowLeft>
         </Link>
         Details

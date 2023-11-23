@@ -5,7 +5,7 @@ const sizesClasses = {
   md: "w-8 h-8 border-4",
   lg: "w-12 h-12 border-6",
 };
-const Spinner = ({
+const Spinner      = ({
   size = "sm",
   className = "",
 }: {

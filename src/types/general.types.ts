@@ -9,18 +9,14 @@ export interface PropertyItemProps {
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 }
-export interface AgentProps {
-  agent?: PropertyAgent | undefined;
-}
+// export interface AgentProps {
+//   agent?: PropertyAgent | undefined;
+// }
 export type AdditionalImagesProps = {
   images: string[] | undefined;
 };
 export type GridComponentProps = AdditionalImagesProps;
 
-export type TDropdownData = {
-  value: string;
-  label: string;
-};
 export type TPropertyStatusData = Omit<TDropdownData, "value"> & {
   value: "" | "sale" | "rent";
 };
@@ -36,3 +32,12 @@ export type TFilter = {
   offset?: number;
   limit?: number;
 };
+export type TDropdownData = {
+  value: string;
+  label: string;
+};
+export interface DropdownProps {
+  selected?: string;
+  data?: TDropdownData[];
+  onClick?: (value: any) => void;
+}

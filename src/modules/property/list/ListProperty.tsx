@@ -1,25 +1,30 @@
+import { PropertyItemData } from "@/types/property.types";
+import React from "react";
 import PropertyItem from "../PropertyItem";
 
-/**
- * Renders a list of property items.
- *
- * @param {Object[]} properties - An array of property items.
- * @param {string} properties[].id - The unique identifier of the property item.
- * @param {string} properties[].name - The name of the property item.
- * @param {string} properties[].value - The value of the property item.
- * @return {JSX.Element} The rendered list of property items.
- */
 export function ListProperty({
-  properties,
+  data,
 }: {
-  properties: PropertyItemData[];
+  data: {
+    pages: {
+      properties: PropertyItemData[];
+    }[];
+  };
 }): JSX.Element {
+  if (!data) {
+    return <></>;
+  }
   return (
     <div aria-label="list" className="grid grid-cols-2 gap-x-16 gap-y-6 mb-9">
-      {properties?.length > 0 &&
-        properties?.map((property: PropertyItemData) => (
-          <PropertyItem key={property.id} data={property} />
-        ))}
+      {data.pages.map((page, index) => (
+        <React.Fragment key={index}>
+          {page?.properties &&
+            page?.properties.length > 0 &&
+            page?.properties.map((property: PropertyItemData) => (
+              <PropertyItem key={property.id} data={property} />
+            ))}
+        </React.Fragment>
+      ))}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import IconCavetDown from './IconCavetDown';
 export { default as IconBuilding } from "./IconBuilding";
 export { default as IconDashboard } from "./IconDashboard";
 export { default as IconMessage } from "./IconMessage";
@@ -21,3 +22,4 @@ export { default as IconStar } from "./IconStar";
 export { default as IconTune } from "./IconTune";
 export { default as IconWifi } from "./IconWifi";
 export { default as IconArrowLeft } from "./IconArrowLeft";
+export { default as IconCavetDown } from "./IconCavetDown";

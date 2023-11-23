@@ -18,7 +18,7 @@ type TSidebarLinkProps = {
   key: string;
 };
 const SidebarLink = ({ link }: TSidebarLinkProps) => {
-  const router = useRouter();
+  const router   = useRouter();
   const pathname = router.pathname;
   return (
     <Link

@@ -16,12 +16,12 @@ const variantsClasses = {
   primary: "text-white bg-primary",
   secondary: "text-white bg-secondary",
 };
-const sizesClasses = {
+const sizesClasses    = {
   sm: "text-[10px]",
   md: "text-base",
   lg: "text-lg ",
 };
-const Button = ({
+const Button          = ({
   children,
   className = "",
   size = "md",

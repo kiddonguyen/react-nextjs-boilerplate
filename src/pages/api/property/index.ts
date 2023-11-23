@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import properties from "@data/properties.json";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  let filteredData = properties;
+  let filteredData                                            = properties;
   const params: {
     text?: string;
     state?: string;
@@ -48,8 +48,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (offset && limit) {
-    const start = parseInt(offset as string);
-    const end = start + parseInt(limit as string);
+    const start  = parseInt(offset as string);
+    const end    = start + parseInt(limit as string);
     filteredData = filteredData.slice(start, end);
   }
 

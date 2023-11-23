@@ -1,42 +1,60 @@
 import { Button } from "@/components/button";
-import { ITEMS_PER_PAGE, STALE_TIME } from "@/constants/general.const";
+import {
+  CACHE_TIME,
+  ITEMS_PER_PAGE,
+  STALE_TIME,
+} from "@/constants/general.const";
 import useFilterProperties from "@/hooks/useFilterProperties";
 import { getProperties } from "@/store/property.service";
 import { PropertyItemData } from "@/types/property.types";
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { PropertyItemLoading } from "./PropertyItem";
-import { Filter, ListProperty, Pagination } from "./list";
+import { Filter, ListProperty } from "./list";
 /**
  * Renders the PropertyList component.
  *
  * @param {Array<PropertyItemData>} properties - An array of property item data.
  * @return {JSX.Element} The rendered PropertyList component.
  */
-const PropertyList = (): JSX.Element => {
-  const { filter }                 = useFilterProperties();
-  const [page, setPage]            = useState<number>(1);
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["properties", filter.text, filter.status, filter.type, page],
-    queryFn: () =>
+const PropertyListLoadMore = (): JSX.Element => {
+  const { filter } = useFilterProperties();
+  const {
+    data,
+    isLoading,
+    error,
+    fetchNextPage,
+    isFetching,
+    isFetchingNextPage,
+    hasNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["properties", filter.text, filter.status, filter.type],
+    queryFn: ({ pageParam = 0 }) =>
       getProperties({
         text: filter.text,
         status: filter.status,
         type: filter.type,
-        offset: (page - 1) * ITEMS_PER_PAGE,
         limit: ITEMS_PER_PAGE,
+        offset: pageParam,
       }),
+    getNextPageParam: (lastPage) => {
+      const properties = lastPage?.properties;
+      
+      if (properties.length < ITEMS_PER_PAGE) {
+        return undefined;
+      }
+
+    },
     staleTime: STALE_TIME,
+    cacheTime: CACHE_TIME,
   });
 
   if (!data) {
     return <></>;
   }
-  const properties = data.properties;
+  const properties = data.pages[0]?.properties || [];
   if (!properties) {
     return <></>;
   }
-
   if (isLoading)
     return (
       <>
@@ -52,16 +70,23 @@ const PropertyList = (): JSX.Element => {
       </>
     );
   const handleLoadMore = () => {
-    return;
+    fetchNextPage();
+  };
+  if (error) {
+    return <></>;
   }
   return (
     <div className="bg-grayfc flex-shrink-0 rounded-2xl p-5">
       <Filter />
-      <ListProperty properties={properties} />
-      <Button className="mx-auto rounded-lg text-sm font-medium" onClick={handleLoadMore}>Load more</Button>
-      <Pagination page={page} setPage={setPage} total={data.total} />
+      <ListProperty data={data} />
+      <Button
+        className="mx-auto rounded-lg text-sm font-medium"
+        onClick={handleLoadMore}
+      >
+        Load more
+      </Button>
     </div>
   );
 };
 
-export default PropertyList;
+export default PropertyListLoadMore;

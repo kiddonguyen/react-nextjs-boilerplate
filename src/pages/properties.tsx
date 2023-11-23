@@ -1,9 +1,7 @@
 import { LayoutMain } from "@/components/layout";
-import PropertyList from "@/modules/property/PropertyList";
-import { getProperties } from "@/store/property.service";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { Heading } from "../components/common/Heading";
+import PropertyListLoadMore from "@/modules/property/PropertyListLoadMore";
 /**
  * Renders the PropertyPage component.
  *
@@ -24,7 +22,7 @@ const PropertyPage = (): JSX.Element => {
           + Add property
         </Link>
       </div>
-      <PropertyList></PropertyList>
+      <PropertyListLoadMore></PropertyListLoadMore>
     </LayoutMain>
   );
 };

@@ -12,8 +12,8 @@ import { Agent, BackLink, LeftSection } from "./details";
  * @returns JSX.Element or null if there is no data or an error occurred.
  */
 const PropertyDetails = (): JSX.Element | null => {
-  const router = useRouter();
-  const id = parseInt(router.query.id as string);
+  const router                     = useRouter();
+  const id                         = parseInt(router.query.id as string);
   const { data, isLoading, error } = useQuery({
     queryKey: ["properties", id],
     queryFn: () => getProperty(id),

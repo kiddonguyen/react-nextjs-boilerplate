@@ -16,6 +16,9 @@ module.exports = {
       spacing: {
         c10: "10px",
       },
+      boxShadow: {
+        dropdown: "0px 25px 50px 0px rgba(91, 88, 88, 0.15)",
+      },
     },
   },
   plugins: [],

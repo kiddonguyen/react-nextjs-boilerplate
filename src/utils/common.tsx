@@ -16,8 +16,8 @@ export function renderFacilityIcon(item: [string, any]): React.ReactNode {
   //     return <></>;
   // }
   const [name, count] = item;
-  const newName = capitalizeStr(name, "-").replace(/ /g, "");
-  const Icon = dynamic(() => import(`@/components/icons/Icon${newName}`));
+  const newName       = capitalizeStr(name, "-").replace(/ /g, "");
+  const Icon          = dynamic(() => import(`@/components/icons/Icon${newName}`));
   return (
     <>
       <span><Icon></Icon></span>
