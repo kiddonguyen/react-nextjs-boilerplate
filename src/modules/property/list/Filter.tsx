@@ -25,7 +25,10 @@ export function Filter({}: {}): JSX.Element {
         selected={selected.statusText}
         data={propertiesStatusData}
         renderItems={(item) => (
-          <DropdownItem onClick={() => handleFilterByStatus(item.value)}>
+          <DropdownItem
+            onClick={() => handleFilterByStatus(item.value)}
+            key={item.value}
+          >
             {item.label}
           </DropdownItem>
         )}
@@ -34,7 +37,10 @@ export function Filter({}: {}): JSX.Element {
         selected={selected.typeText}
         data={propertiesTypeData}
         renderItems={(item) => (
-          <DropdownItem onClick={() => handleFilterByType(item.value)}>
+          <DropdownItem
+            onClick={() => handleFilterByType(item.value)}
+            key={item.value}
+          >
             {item.label}
           </DropdownItem>
         )}

@@ -4,7 +4,7 @@ import { IconCavetDown } from "../icons";
 
 export function Dropdown<TData,>(props: DropdownProps<TData>): JSX.Element {
   // eslint-disable-next-line align-assignments/align-assignments
-  const { selected, renderItems, data  = [] } = props;
+  const { selected, renderItems, data = [] } = props;
   return (
     <Menu as="div" className="relative basis-[160px]">
       {({ open }) => (

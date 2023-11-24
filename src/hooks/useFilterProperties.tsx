@@ -40,6 +40,7 @@ const useFilterProperties = () => {
       ...selected,
       statusText: value ? foundStatus?.label || "" : "Any Status",
     });
+    console.log(filter);
   };
   const handleFilterByType = (value: TPropertyTypeData["value"]): void => {
     setFilter({

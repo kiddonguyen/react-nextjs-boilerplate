@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import { Manrope } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const queryClient = new QueryClient();
 const manrope     = Manrope({
   weight: ["400", "500", "600", "700"],
@@ -18,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </ClerkProvider>
       </div>
+      <ToastContainer />
     </QueryClientProvider>
   );
 }

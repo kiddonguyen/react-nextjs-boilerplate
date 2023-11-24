@@ -1,7 +1,8 @@
-import { UserButton, useAuth } from "@clerk/nextjs";
+import { useAuth, useClerk } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { IconNotification, IconSearch } from "../icons";
+import IconSignOut from "../icons/IconSignOut";
 
 const Topbar = () => {
   return (
@@ -40,6 +41,7 @@ function Search({}) {
 
 function User({}) {
   const { userId } = useAuth();
+  const { signOut, user } = useClerk();
   return (
     <div className="flex items-center gap-5 flex-shrink-0">
       <span className="flex-shrink-0">
@@ -48,11 +50,27 @@ function User({}) {
       <div className="flex items-center gap-[10px]">
         {userId ? (
           <>
-            <UserButton afterSignOutUrl="/" />
+            <Link href="/my-profile">
+              <Image
+                src={user?.imageUrl || "/avatar.png"}
+                alt=""
+                className="w-10 h-10 rounded-full object-cover"
+                width="40"
+                height="40"
+              />
+            </Link>
+            <div className="flex flex-col">
+              <h4 className="font-semibold">{user?.fullName}</h4>
+              <span className="text-gray80">Company Manager</span>
+            </div>
+            <button onClick={() => signOut()} className="text-gray-400">
+              <IconSignOut></IconSignOut>
+            </button>
+            {/* <UserButton afterSignOutUrl="/" />
             <div className="flex flex-col">
               <h4 className="font-semibold">Hawkins Maru</h4>
               <span className="text-gray80">Company Manager</span>
-            </div>
+            </div> */}
           </>
         ) : (
           <>
