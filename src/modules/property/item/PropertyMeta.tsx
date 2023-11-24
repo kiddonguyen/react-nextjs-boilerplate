@@ -1,4 +1,4 @@
-import { IconBed, IconCross } from "@/components/icons";
+import { IconBeds, IconCross } from "@/components/icons";
 import { PropertyIconWithLabel } from "./PropertyIconWithLabel";
 /**
  * Renders the PropertyMeta component.
@@ -16,7 +16,7 @@ export function PropertyMeta({
 }): JSX.Element {
   return (
     <div className="flex items-center gap-2">
-      <PropertyIconWithLabel icon={<IconBed />}>
+      <PropertyIconWithLabel icon={<IconBeds />}>
         {facility.beds}
       </PropertyIconWithLabel>
       <PropertyIconWithLabel icon={<IconCross />}>

@@ -11,7 +11,7 @@ import { Agent, BackLink, LeftSection } from "./details";
  * Renders the Property Details component.
  * @returns JSX.Element or null if there is no data or an error occurred.
  */
-const PropertyDetails = (): JSX.Element | null => {
+const PropertyDetails = (posts: any): JSX.Element | null => {
   const router                     = useRouter();
   const id                         = parseInt(router.query.id as string);
   const { data, isLoading, error } = useQuery({
@@ -20,7 +20,8 @@ const PropertyDetails = (): JSX.Element | null => {
     staleTime: STALE_TIME,
     cacheTime: CACHE_TIME,
     enabled: !!id,
-  });
+    initialData: posts?.posts || {},
+  }); 
 
   if (!data || error) {
     return null;
@@ -30,9 +31,8 @@ const PropertyDetails = (): JSX.Element | null => {
     return <Spinner />;
   }
 
-  const facilities = data?.facility ? Object.entries(data.facility) : [];
-  // const agent = data?.agent || {};
-
+  const facilities = Object.entries(data.facility || {});
+  const agent      = data.agent;
   return (
     <>
       <HeadContent title={data.title} />
@@ -40,7 +40,7 @@ const PropertyDetails = (): JSX.Element | null => {
         <BackLink />
         <div className="grid grid-cols-[2fr_1fr] gap-6">
           <LeftSection data={data} facilities={facilities} />
-          <Agent data={data} />
+          <Agent agent={agent} />
         </div>
       </div>
     </>

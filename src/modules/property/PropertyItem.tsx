@@ -1,3 +1,6 @@
+import { IconBeds, IconCross, IconLocation2 } from "@/components/icons";
+import { Skeleton } from "@/components/loading";
+import { PropertyItemData } from "@/types/property.types";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -6,9 +9,6 @@ import {
   PropertyPlace,
   PropertyPrice,
 } from "./item";
-import { PropertyItemData } from "@/types/property.types";
-import { Skeleton } from "@/components/loading";
-import { IconBed, IconCross, IconLocation2 } from "@/components/icons";
 /**
  * Renders a single property item.
  *
@@ -58,7 +58,7 @@ export const PropertyItemLoading = () => {
         </div>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <IconBed></IconBed>
+            <IconBeds></IconBeds>
             <Skeleton className="w-5 h-3"></Skeleton>
           </div>
           <div className="flex items-center gap-1">

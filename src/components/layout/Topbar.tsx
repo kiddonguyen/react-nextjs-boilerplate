@@ -1,3 +1,4 @@
+import { UserButton, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { IconNotification, IconSearch } from "../icons";
@@ -38,24 +39,33 @@ function Search({}) {
 }
 
 function User({}) {
+  const { userId } = useAuth();
   return (
     <div className="flex items-center gap-5 flex-shrink-0">
       <span className="flex-shrink-0">
         <IconNotification></IconNotification>
       </span>
       <div className="flex items-center gap-[10px]">
-        <Image
-          src="https://source.unsplash.com/random"
-          alt="avatar"
-          width={40}
-          height={40}
-          priority
-          className="rounded-full object-cover w-10 h-10"
-        ></Image>
-        <div className="flex flex-col">
-          <h4 className="font-semibold">Hawkins Maru</h4>
-          <span className="text-gray80">Company Manager</span>
-        </div>
+        {userId ? (
+          <>
+            <UserButton afterSignOutUrl="/" />
+            <div className="flex flex-col">
+              <h4 className="font-semibold">Hawkins Maru</h4>
+              <span className="text-gray80">Company Manager</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link href="/sign-in"> Sign in </Link>
+            <Link
+              href="/sign-up"
+              className="p-3 bg-primary text-white rounded-lg"
+            >
+              {" "}
+              Sign up
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

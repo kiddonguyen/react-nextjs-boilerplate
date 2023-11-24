@@ -1,7 +1,8 @@
-import { PropertyMeta } from "./PropertyMeta";
+import { PropertyItemData } from "@/types/property.types";
 import { Description } from "./Description";
 import { Facility } from "./Facility";
 import { Gallery } from "./Gallery";
+import { PropertyMeta } from "./PropertyMeta";
 interface LeftSectionProps {
   data?: PropertyItemData; // Make data optional
   facilities?: [string, any][] | undefined;
@@ -21,9 +22,10 @@ export function LeftSection({
   if (!data) {
     return <div>No data available</div>;
   }
+  const image = data.image;
   return (
     <div aria-label="left">
-      <Gallery data={data} />
+      <Gallery image={image} />
       <div>
         <PropertyMeta data={data} />
         <Facility facilities={facilities} />

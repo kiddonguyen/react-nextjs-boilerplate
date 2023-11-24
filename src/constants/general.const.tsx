@@ -36,7 +36,7 @@ export const sidebarLinks: TSidebarLink[] = [
   {
     title: "Profile",
     icon: <IconProfile />,
-    path: "/profile",
+    path: "/my-profile",
   },
 ];
 export const STALE_TIME = 1000 * 60 * 5;
